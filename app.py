@@ -57,6 +57,22 @@ def update_worker(student_email):
 
     
     return input_data
+
+@app.route('/student/<string:student_email>', methods=['DELETE'])
+def delete_student(student_email):
+    json_data = load_data()
+    student_found = False
+    for i, student in enumerate(json_data):
+        if (student_email == student['semail']):
+            student_found = True
+            del json_data[i]
+            break
+    if not student_found: 
+        return {"msg": "no such student"}
+    with open(MY_FILE, 'w') as f:
+        f.write(json.dumps(json_data))
+    return {"msg": "student with email {} deleted".format(student_email)}
+
     
 
 

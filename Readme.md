@@ -1,12 +1,9 @@
 # flask back with file.json
-## contains:
-### Crud without delete 
-### CORS
+
+## Full CRUD project
 
 
-
-
-# Run:
+# To run u will need to:
     create a virtual enviroment
     pip install -r .\requirements.txt
-    python app.py
+    python3 app.py
